@@ -1,0 +1,68 @@
+<svg width="1270" height="760" viewBox="0 0 1270 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1270" height="760" fill="#0b0c0c"/>
+  
+  <circle cx="200" cy="150" r="2" fill="#fbe134" opacity="0.15"/>
+  <circle cx="450" cy="80" r="1.5" fill="#fbe134" opacity="0.1"/>
+  <circle cx="800" cy="120" r="2.5" fill="#fbe134" opacity="0.12"/>
+  <circle cx="1050" cy="200" r="1.8" fill="#fbe134" opacity="0.08"/>
+  <circle cx="150" cy="400" r="1.2" fill="#fbe134" opacity="0.12"/>
+  <circle cx="1100" cy="450" r="2" fill="#fbe134" opacity="0.1"/>
+  <circle cx="350" cy="600" r="1.5" fill="#fbe134" opacity="0.08"/>
+  <circle cx="900" cy="650" r="2.2" fill="#fbe134" opacity="0.1"/>
+  <circle cx="600" cy="700" r="1" fill="#fbe134" opacity="0.15"/>
+  <circle cx="70" cy="600" r="1.8" fill="#fbe134" opacity="0.1"/>
+  <circle cx="1200" cy="300" r="1.5" fill="#fbe134" opacity="0.12"/>
+  <circle cx="500" cy="350" r="1" fill="#fbe134" opacity="0.08"/>
+  <circle cx="750" cy="500" r="2" fill="#fbe134" opacity="0.1"/>
+  <circle cx="100" cy="250" r="1.5" fill="#fbe134" opacity="0.12"/>
+  <circle cx="1150" cy="550" r="1.8" fill="#fbe134" opacity="0.08"/>
+  <circle cx="300" cy="500" r="1" fill="#fbe134" opacity="0.1"/>
+  <circle cx="950" cy="350" r="2" fill="#fbe134" opacity="0.08"/>
+  <circle cx="650" cy="200" r="1.5" fill="#fbe134" opacity="0.1"/>
+  
+  <line x1="200" y1="150" x2="450" y2="80" stroke="#fbe134" stroke-width="0.5" opacity="0.04"/>
+  <line x1="450" y1="80" x2="800" y2="120" stroke="#fbe134" stroke-width="0.5" opacity="0.03"/>
+  <line x1="800" y1="120" x2="1050" y2="200" stroke="#fbe134" stroke-width="0.5" opacity="0.03"/>
+  <line x1="150" y1="400" x2="350" y2="600" stroke="#fbe134" stroke-width="0.5" opacity="0.04"/>
+  <line x1="1100" y1="450" x2="900" y2="650" stroke="#fbe134" stroke-width="0.5" opacity="0.03"/>
+  <line x1="500" y1="350" x2="750" y2="500" stroke="#fbe134" stroke-width="0.5" opacity="0.03"/>
+  <line x1="950" y1="350" x2="650" y2="200" stroke="#fbe134" stroke-width="0.5" opacity="0.03"/>
+  <line x1="100" y1="250" x2="300" y2="500" stroke="#fbe134" stroke-width="0.5" opacity="0.04"/>
+  
+  <rect x="0" y="0" width="1270" height="760" fill="url(#glow)" opacity="0.4"/>
+  
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#fbe134" stop-opacity="0.06"/>
+      <stop offset="50%" stop-color="#fbe134" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#0b0c0c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <g transform="translate(635, 310)">
+    <text text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="120" font-weight="800" letter-spacing="-4">
+      <tspan fill="#fbe134">E</tspan>
+      <tspan fill="#e9eaec">uthenia </tspan>
+      <tspan fill="#e9eaec">Studio</tspan>
+    </text>
+  </g>
+  
+  <g transform="translate(635, 420)">
+    <text text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" fill="rgba(233,234,236,0.6)" font-weight="400" letter-spacing="-0.5">
+      Building free, modern tools that make everyday tasks simpler.
+    </text>
+  </g>
+  
+  <g transform="translate(635, 510)">
+    <rect x="-150" y="-20" width="300" height="54" rx="12" fill="#fbe134"/>
+    <text text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="20" fill="#0b0c0c" font-weight="600" y="8">
+      Explore Our Tools
+    </text>
+  </g>
+  
+  <g transform="translate(635, 590)">
+    <text text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="rgba(233,234,236,0.3)" font-weight="400" letter-spacing="2">
+      10 FREE · PRIVACY-FIRST · NO UPLOADS
+    </text>
+  </g>
+</svg>
