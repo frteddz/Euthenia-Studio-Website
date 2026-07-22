@@ -1,7 +1,8 @@
-import { lazy, Suspense } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AnimatedBackground } from './components/AnimatedBackground';
+import { StudioPass } from './pages/StudioPass';
 
 const Projects = lazy(() =>
   import('./components/Projects').then((m) => ({ default: m.Projects }))
@@ -34,25 +35,31 @@ function SectionFallback() {
 }
 
 export default function App() {
+  const [page, setPage] = useState<'home' | 'studio-pass'>('home');
+
   return (
     <>
       <AnimatedBackground />
-      <Navbar />
-      <main>
-        <Hero />
-        <Suspense fallback={<SectionFallback />}>
-          <Projects />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <About />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <Credits />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <Footer />
-        </Suspense>
-      </main>
+      <Navbar currentPage={page} onNavigate={setPage} />
+      {page === 'home' ? (
+        <main>
+          <Hero />
+          <Suspense fallback={<SectionFallback />}>
+            <Projects />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <About />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <Credits />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <Footer />
+          </Suspense>
+        </main>
+      ) : (
+        <StudioPass />
+      )}
     </>
   );
 }

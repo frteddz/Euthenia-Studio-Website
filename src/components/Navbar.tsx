@@ -1,14 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Star } from 'lucide-react';
 
 const links = [
-  { href: '#home', label: 'Home' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#about', label: 'About' },
-  { href: '#credits', label: 'Credits' },
+  { page: 'home' as const, label: 'Home' },
+  { page: 'home' as const, label: 'Projects', hash: '#projects' },
+  { page: 'home' as const, label: 'About', hash: '#about' },
+  { page: 'home' as const, label: 'Credits', hash: '#credits' },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+  currentPage: 'home' | 'studio-pass';
+  onNavigate: (page: 'home' | 'studio-pass') => void;
+}
+
+export function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -45,12 +50,14 @@ export function Navbar() {
         }}
       >
         <a
+          onClick={(e) => { e.preventDefault(); onNavigate('home'); }}
           href="#home"
           style={{
             fontSize: '1.125rem',
             fontWeight: 700,
             letterSpacing: '-0.02em',
             color: 'var(--color-text-primary)',
+            cursor: 'pointer',
           }}
         >
           <span style={{ color: 'var(--color-accent)' }}>E</span>uthenia
@@ -64,17 +71,42 @@ export function Navbar() {
           }}
         >
           <div style={{ display: 'none', gap: '0.25rem' }} className="nav-desktop-links">
-            {links.map((link) => (
+            {currentPage === 'home' ? (
+              links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.hash || '#home'}
+                  style={{
+                    padding: '0.5rem 1rem',
+                    borderRadius: 'var(--radius-sm)',
+                    fontSize: '0.875rem',
+                    fontWeight: 500,
+                    color: 'var(--color-text-secondary)',
+                    transition: 'all var(--transition-fast)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--color-text-primary)';
+                    e.currentTarget.style.background = 'var(--color-glass)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--color-text-secondary)';
+                    e.currentTarget.style.background = 'transparent';
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))
+            ) : (
               <a
-                key={link.href}
-                href={link.href}
+                onClick={(e) => { e.preventDefault(); onNavigate('home'); }}
+                href="#home"
                 style={{
                   padding: '0.5rem 1rem',
                   borderRadius: 'var(--radius-sm)',
                   fontSize: '0.875rem',
                   fontWeight: 500,
                   color: 'var(--color-text-secondary)',
-                  transition: 'all var(--transition-fast)',
+                  cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = 'var(--color-text-primary)';
@@ -85,9 +117,37 @@ export function Navbar() {
                   e.currentTarget.style.background = 'transparent';
                 }}
               >
-                {link.label}
+                Back to Home
               </a>
-            ))}
+            )}
+
+            {currentPage === 'home' && (
+              <a
+                onClick={(e) => { e.preventDefault(); onNavigate('studio-pass'); }}
+                href="#studio-pass"
+                style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: 'var(--radius-sm)',
+                  fontSize: '0.875rem',
+                  fontWeight: 600,
+                  color: 'var(--color-accent)',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.375rem',
+                  transition: 'all var(--transition-fast)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(251, 225, 52, 0.08)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                <Star size={14} />
+                Studio Pass
+              </a>
+            )}
           </div>
 
           <button
@@ -119,24 +179,56 @@ export function Navbar() {
             padding: '1rem 1.5rem',
           }}
         >
-          {links.map((link) => (
+          {currentPage === 'home' ? (
+            links.map((link) => (
+              <a
+                key={link.label}
+                href={link.hash || '#home'}
+                onClick={() => setOpen(false)}
+                style={{
+                  display: 'block',
+                  padding: '0.75rem 0',
+                  fontSize: '1rem',
+                  fontWeight: 500,
+                  color: 'var(--color-text-secondary)',
+                  borderBottom: '1px solid var(--color-border)',
+                }}
+              >
+                {link.label}
+              </a>
+            ))
+          ) : (
             <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => { e.preventDefault(); onNavigate('home'); setOpen(false); }}
+              href="#home"
               style={{
                 display: 'block',
                 padding: '0.75rem 0',
                 fontSize: '1rem',
                 fontWeight: 500,
                 color: 'var(--color-text-secondary)',
-                borderBottom: '1px solid var(--color-border)',
-                transition: 'color var(--transition-fast)',
               }}
             >
-              {link.label}
+              Back to Home
             </a>
-          ))}
+          )}
+          <a
+            onClick={(e) => { e.preventDefault(); onNavigate('studio-pass'); setOpen(false); }}
+            href="#studio-pass"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.75rem 0',
+              fontSize: '1rem',
+              fontWeight: 600,
+              color: 'var(--color-accent)',
+              borderBottom: currentPage === 'home' ? '1px solid var(--color-border)' : 'none',
+            }}
+          >
+            <Star size={16} />
+            Studio Pass
+          </a>
         </div>
       )}
     </nav>
