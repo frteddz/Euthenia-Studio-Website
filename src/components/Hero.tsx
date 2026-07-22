@@ -1,0 +1,127 @@
+import { ArrowRight, GitBranch } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+
+export function Hero() {
+  const titleRef = useScrollReveal<HTMLDivElement>();
+  const subtitleRef = useScrollReveal<HTMLDivElement>();
+  const actionsRef = useScrollReveal<HTMLDivElement>();
+
+  return (
+    <section
+      id="home"
+      style={{
+        position: 'relative',
+        zIndex: 1,
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: 'var(--nav-height)',
+      }}
+    >
+      <div style={{ textAlign: 'center', padding: '2rem 1.5rem', maxWidth: 720 }}>
+        <div ref={titleRef} className="reveal">
+          <h1
+            style={{
+              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+              fontWeight: 800,
+              letterSpacing: '-0.04em',
+              lineHeight: 1.08,
+              marginBottom: '1.25rem',
+            }}
+          >
+            <span style={{ color: 'var(--color-accent)' }}>Euthenia</span>{' '}
+            <span style={{ color: 'var(--color-text-primary)' }}>Studio</span>
+          </h1>
+        </div>
+
+        <div ref={subtitleRef} className="reveal reveal-delay-1">
+          <p
+            style={{
+              fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+              color: 'var(--color-text-secondary)',
+              lineHeight: 1.7,
+              maxWidth: 520,
+              margin: '0 auto 2.5rem',
+            }}
+          >
+            Building free, modern tools that make everyday tasks simpler.
+          </p>
+        </div>
+
+        <div
+          ref={actionsRef}
+          className="reveal reveal-delay-2"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          <a
+            href="#projects"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.75rem 1.75rem',
+              borderRadius: 'var(--radius-md)',
+              background: 'var(--color-accent)',
+              color: 'var(--onyx)',
+              fontWeight: 600,
+              fontSize: '0.9375rem',
+              transition: 'all var(--transition-normal)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--color-accent-hover)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(251, 225, 52, 0.25)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'var(--color-accent)';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            Explore Projects
+            <ArrowRight size={16} />
+          </a>
+
+          <a
+            href="https://github.com/frteddz"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.75rem 1.75rem',
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid var(--color-border)',
+              background: 'var(--color-glass)',
+              color: 'var(--color-text-primary)',
+              fontWeight: 600,
+              fontSize: '0.9375rem',
+              transition: 'all var(--transition-normal)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-accent)';
+              e.currentTarget.style.background = 'rgba(251, 225, 52, 0.06)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-border)';
+              e.currentTarget.style.background = 'var(--color-glass)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            <GitBranch size={16} />
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
