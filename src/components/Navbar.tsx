@@ -9,8 +9,8 @@ const links = [
 ];
 
 interface NavbarProps {
-  currentPage: 'home' | 'studio-pass';
-  onNavigate: (page: 'home' | 'studio-pass') => void;
+  currentPage: string;
+  onNavigate: (page: string) => void;
 }
 
 export function Navbar({ currentPage, onNavigate }: NavbarProps) {
@@ -72,16 +72,41 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
         >
           <div style={{ display: 'none', gap: '0.25rem' }} className="nav-desktop-links">
             {currentPage === 'home' ? (
-              links.map((link) => (
+              <>
+                {links.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.hash || '#home'}
+                    style={{
+                      padding: '0.5rem 1rem',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.875rem',
+                      fontWeight: 500,
+                      color: 'var(--color-text-secondary)',
+                      transition: 'all var(--transition-fast)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = 'var(--color-text-primary)';
+                      e.currentTarget.style.background = 'var(--color-glass)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = 'var(--color-text-secondary)';
+                      e.currentTarget.style.background = 'transparent';
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                ))}
                 <a
-                  key={link.label}
-                  href={link.hash || '#home'}
+                  onClick={(e) => { e.preventDefault(); onNavigate('blog'); }}
+                  href="#blog"
                   style={{
                     padding: '0.5rem 1rem',
                     borderRadius: 'var(--radius-sm)',
                     fontSize: '0.875rem',
                     fontWeight: 500,
                     color: 'var(--color-text-secondary)',
+                    cursor: 'pointer',
                     transition: 'all var(--transition-fast)',
                   }}
                   onMouseEnter={(e) => {
@@ -93,9 +118,9 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
                     e.currentTarget.style.background = 'transparent';
                   }}
                 >
-                  {link.label}
+                  Blog
                 </a>
-              ))
+              </>
             ) : (
               <a
                 onClick={(e) => { e.preventDefault(); onNavigate('home'); }}
@@ -180,11 +205,27 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
           }}
         >
           {currentPage === 'home' ? (
-            links.map((link) => (
+            <>
+              {links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.hash || '#home'}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '0.75rem 0',
+                    fontSize: '1rem',
+                    fontWeight: 500,
+                    color: 'var(--color-text-secondary)',
+                    borderBottom: '1px solid var(--color-border)',
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
               <a
-                key={link.label}
-                href={link.hash || '#home'}
-                onClick={() => setOpen(false)}
+                onClick={(e) => { e.preventDefault(); onNavigate('blog'); setOpen(false); }}
+                href="#blog"
                 style={{
                   display: 'block',
                   padding: '0.75rem 0',
@@ -194,9 +235,9 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
                   borderBottom: '1px solid var(--color-border)',
                 }}
               >
-                {link.label}
+                Blog
               </a>
-            ))
+            </>
           ) : (
             <a
               onClick={(e) => { e.preventDefault(); onNavigate('home'); setOpen(false); }}
