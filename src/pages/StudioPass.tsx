@@ -477,7 +477,7 @@ export function StudioPass() {
                   <input
                     value={tokenInput}
                     onChange={(e) => setTokenInput(e.target.value)}
-                    placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx"
+                    placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx or ABC12"
                     style={{
                       width: '100%', padding: '0.75rem',
                       borderRadius: 'var(--radius-md)',
