@@ -1,5 +1,6 @@
-import { Shield, Zap, Globe, Code, User, Mail } from 'lucide-react';
+import { Shield, Zap, Globe, Code, User, Mail, Copy, Check } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useState } from 'react';
 
 const values = [
   {
@@ -15,7 +16,7 @@ const values = [
   {
     icon: Code,
     title: 'Open to Contributors',
-    description: 'Want to publish your project here? Email teddzfr@proton.me — let\'s build something together.',
+    description: 'Want to publish your project here? Email me — let\'s build something together.',
   },
   {
     icon: Globe,
@@ -23,6 +24,26 @@ const values = [
     description: 'The essential features of every tool are free forever. No paywalls, no tricks.',
   },
 ];
+
+function CopyEmail() {
+  const [copied, setCopied] = useState(false);
+  const email = 'teddzfr@proton.me';
+  const copy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <span
+      onClick={copy}
+      style={{ color: 'var(--color-accent)', cursor: 'pointer', whiteSpace: 'nowrap', userSelect: 'none' }}
+      title="Click to copy"
+    >
+      {copied ? <Check size={14} style={{ display: 'inline', marginRight: 2, verticalAlign: 'middle' }} /> : <Copy size={14} style={{ display: 'inline', marginRight: 2, verticalAlign: 'middle' }} />}
+      {email}
+    </span>
+  );
+}
 
 export function About() {
   const labelRef = useScrollReveal<HTMLDivElement>();
@@ -48,8 +69,7 @@ export function About() {
               className="section-subtitle"
               style={{ marginTop: '1rem', color: 'var(--color-text-tertiary)', fontSize: '0.9375rem' }}
             >
-              I believe software should be simple, fast, and respect your privacy. If you have a project you'd like to publish under Euthenia Studio,
-              <a href="mailto:teddzfr@proton.me" style={{ color: 'var(--color-accent)', textDecoration: 'underline', marginLeft: '0.25rem' }}>email me</a>.
+              I believe software should be simple, fast, and respect your privacy. If you have a project you'd like to publish under Euthenia Studio, my inbox is open at <CopyEmail />.
             </p>
           </div>
         </div>
