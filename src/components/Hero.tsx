@@ -4,6 +4,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 export function Hero() {
   const titleRef = useScrollReveal<HTMLDivElement>();
   const subtitleRef = useScrollReveal<HTMLDivElement>();
+  const statsRef = useScrollReveal<HTMLDivElement>();
   const actionsRef = useScrollReveal<HTMLDivElement>();
 
   return (
@@ -50,8 +51,48 @@ export function Hero() {
         </div>
 
         <div
-          ref={actionsRef}
+          ref={statsRef}
           className="reveal reveal-delay-2"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.75rem',
+            flexWrap: 'wrap',
+            marginBottom: '2.5rem',
+          }}
+        >
+          {[
+            { value: '21', label: 'Projects' },
+            { value: '100%', label: 'Free' },
+            { value: 'Zero', label: 'Servers' },
+            { value: '1', label: 'Developer' },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              style={{
+                background: 'var(--color-card-bg)',
+                border: '1px solid var(--color-border)',
+                borderRadius: 'var(--radius-md)',
+                padding: '0.75rem 1.25rem',
+                minWidth: 100,
+                textAlign: 'center',
+                backdropFilter: 'blur(8px)',
+              }}
+            >
+              <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-accent)', letterSpacing: '-0.03em' }}>
+                {stat.value}
+              </div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--color-text-tertiary)', marginTop: '0.125rem' }}>
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div
+          ref={actionsRef}
+          className="reveal reveal-delay-3"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -157,7 +198,7 @@ export function Hero() {
         </div>
 
         <div
-          className="reveal reveal-delay-3"
+          className="reveal reveal-delay-4"
           style={{
             marginTop: '3rem',
             padding: '0.875rem 1.5rem',
