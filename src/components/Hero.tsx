@@ -1,4 +1,4 @@
-import { ArrowRight, GitBranch } from 'lucide-react';
+import { ArrowRight, GitBranch, ExternalLink, Mail } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export function Hero() {
@@ -45,7 +45,8 @@ export function Hero() {
               margin: '0 auto 2.5rem',
             }}
           >
-            Building free, modern tools that make everyday tasks simpler.
+            A small independent software studio building practical, privacy-first tools. <br />
+            <span style={{ color: 'var(--color-text-tertiary)', fontSize: '0.9em' }}>Want to publish your project here? Email me.</span>
           </p>
         </div>
 
@@ -119,6 +120,37 @@ export function Hero() {
           >
             <GitBranch size={16} />
             GitHub
+          </a>
+          <a
+            href="https://x.com/teddzfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.75rem 1.75rem',
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid var(--color-border)',
+              background: 'var(--color-glass)',
+              color: 'var(--color-text-primary)',
+              fontWeight: 600,
+              fontSize: '0.9375rem',
+              transition: 'all var(--transition-normal)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-accent)';
+              e.currentTarget.style.background = 'rgba(251, 225, 52, 0.06)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-border)';
+              e.currentTarget.style.background = 'var(--color-glass)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            <ExternalLink size={16} />
+            X / Twitter
           </a>
         </div>
       </div>

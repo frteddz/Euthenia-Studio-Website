@@ -1,26 +1,26 @@
-import { Shield, Zap, Globe, Code } from 'lucide-react';
+import { Shield, Zap, Globe, Code, User, Mail } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const values = [
+  {
+    icon: User,
+    title: 'Built by One Dev',
+    description: 'Euthenia Studio is a one-person software studio. Every project is crafted with care by Teddz.',
+  },
   {
     icon: Shield,
     title: 'Privacy First',
     description: 'All tools run entirely in your browser. No data is ever sent to a server.',
   },
   {
-    icon: Zap,
-    title: 'Fast & Lightweight',
-    description: 'Built with performance in mind. No bloat, no unnecessary dependencies.',
-  },
-  {
     icon: Code,
-    title: 'Modern Stack',
-    description: 'Built with React, TypeScript, and Tauri for a native-like experience.',
+    title: 'Open to Contributors',
+    description: 'Want to publish your project here? Email teddzfr@proton.me — let\'s build something together.',
   },
   {
     icon: Globe,
-    title: 'Free for Everyone',
-    description: 'All tools are free to use. No paywalls, no subscriptions, no hidden costs.',
+    title: 'Always Free at Core',
+    description: 'The essential features of every tool are free forever. No paywalls, no tricks.',
   },
 ];
 
@@ -37,21 +37,20 @@ export function About() {
             <span className="section-label">About</span>
           </div>
           <div ref={titleRef} className="reveal reveal-delay-1">
-            <h2 className="section-title">Independent Software Studio</h2>
+            <h2 className="section-title">A One-Person Studio</h2>
           </div>
           <div ref={descriptionRef} className="reveal reveal-delay-2">
             <p className="section-subtitle">
-              Euthenia Studio is a small independent software studio focused on building practical,
-              well-crafted utilities. Every tool is designed to solve real problems — nothing more,
-              nothing less.
+              Euthenia Studio is my personal software studio — a place to publish the tools and
+              projects I build. Everything here is made by me, Teddz, one developer at a time.
             </p>
             <p
               className="section-subtitle"
               style={{ marginTop: '1rem', color: 'var(--color-text-tertiary)', fontSize: '0.9375rem' }}
             >
-              We believe software should be simple, fast, and respect your privacy. Wherever
-              possible, our projects are open source so anyone can inspect, learn from, and
-              contribute to them.
+              I believe software should be simple, fast, and respect your privacy. All my projects
+              are open source. If you have a project you'd like to publish under Euthenia Studio,
+              <a href="mailto:teddzfr@proton.me" style={{ color: 'var(--color-accent)', textDecoration: 'underline', marginLeft: '0.25rem' }}>email me</a>.
             </p>
           </div>
         </div>

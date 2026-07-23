@@ -1,4 +1,4 @@
-import { GitBranch } from 'lucide-react';
+import { GitBranch, ExternalLink, Mail } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -46,7 +46,7 @@ export function Footer() {
                   lineHeight: 1.6,
                 }}
               >
-                Building software that solves real problems.
+                A one-person software studio. Built by Teddz.
               </p>
             </div>
 
@@ -75,24 +75,34 @@ export function Footer() {
                 GitHub
               </a>
               <a
-                href="#"
+                href="https://x.com/teddzfr"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
                   fontSize: '0.875rem',
                   color: 'var(--color-text-secondary)',
                   transition: 'color var(--transition-fast)',
                 }}
               >
-                Privacy Policy
+                <ExternalLink size={16} />
+                X / Twitter
               </a>
               <a
-                href="#"
+                href="mailto:teddzfr@proton.me"
                 style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
                   fontSize: '0.875rem',
                   color: 'var(--color-text-secondary)',
                   transition: 'color var(--transition-fast)',
                 }}
               >
-                Terms of Service
+                <Mail size={16} />
+                Contact
               </a>
             </div>
           </div>

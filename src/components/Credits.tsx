@@ -28,7 +28,11 @@ export function Credits() {
         >
           <CreditCard
             title="Founder"
-            items={[{ label: 'Teddz', description: 'Creator & Developer' }]}
+            items={[
+              { label: 'Teddz', description: 'Creator & Developer' },
+              { label: 'X / Twitter', description: '@teddzfr' },
+              { label: 'Email', description: 'teddzfr@proton.me' },
+            ]}
           />
 
           <CreditCard
