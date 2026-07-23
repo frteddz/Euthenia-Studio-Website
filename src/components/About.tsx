@@ -48,8 +48,7 @@ export function About() {
               className="section-subtitle"
               style={{ marginTop: '1rem', color: 'var(--color-text-tertiary)', fontSize: '0.9375rem' }}
             >
-              I believe software should be simple, fast, and respect your privacy. All my projects
-              are open source. If you have a project you'd like to publish under Euthenia Studio,
+              I believe software should be simple, fast, and respect your privacy. If you have a project you'd like to publish under Euthenia Studio,
               <a href="mailto:teddzfr@proton.me" style={{ color: 'var(--color-accent)', textDecoration: 'underline', marginLeft: '0.25rem' }}>email me</a>.
             </p>
           </div>
