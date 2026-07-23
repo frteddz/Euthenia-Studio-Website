@@ -73,6 +73,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       </p>
 
       <a
+        data-sound="click"
         href={project.url}
         target="_blank"
         rel="noopener noreferrer"

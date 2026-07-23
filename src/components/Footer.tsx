@@ -59,6 +59,7 @@ export function Footer() {
               }}
             >
               <a
+                data-sound="click"
                 href="https://github.com/frteddz"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -75,6 +76,7 @@ export function Footer() {
                 GitHub
               </a>
               <a
+                data-sound="click"
                 href="https://x.com/teddzfr"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -91,6 +93,7 @@ export function Footer() {
                 X / Twitter
               </a>
               <a
+                data-sound="click"
                 href="mailto:teddzfr@proton.me"
                 style={{
                   display: 'inline-flex',
@@ -115,6 +118,7 @@ export function Footer() {
               }}
             >
               <a
+                data-sound="click"
                 href="#privacy"
                 style={{
                   display: 'inline-flex',
@@ -129,6 +133,7 @@ export function Footer() {
                 Privacy Policy
               </a>
               <a
+                data-sound="click"
                 href="#terms"
                 style={{
                   display: 'inline-flex',

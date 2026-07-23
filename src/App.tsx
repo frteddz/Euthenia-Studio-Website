@@ -52,6 +52,17 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handler);
   }, []);
 
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const el = (e.target as HTMLElement).closest('[data-sound], a, button');
+      if (!el) return;
+      if (el.getAttribute('data-sound') === 'off') return;
+      import('./lib/sound').then(({ playClick }) => playClick());
+    };
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
+  }, []);
+
   const navigate = (p: string) => {
     if (p === 'home') {
       window.location.hash = '';

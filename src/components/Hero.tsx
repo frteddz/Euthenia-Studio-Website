@@ -61,6 +61,7 @@ export function Hero() {
           }}
         >
           <a
+            data-sound="click"
             href="#projects"
             style={{
               display: 'inline-flex',
@@ -90,6 +91,7 @@ export function Hero() {
           </a>
 
           <a
+            data-sound="click"
             href="https://github.com/frteddz"
             target="_blank"
             rel="noopener noreferrer"
@@ -121,6 +123,7 @@ export function Hero() {
             GitHub
           </a>
           <a
+            data-sound="click"
             href="https://x.com/teddzfr"
             target="_blank"
             rel="noopener noreferrer"

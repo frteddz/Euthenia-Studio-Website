@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Star } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Menu, X, Star, Volume2, VolumeX } from 'lucide-react';
+import { startAmbient, stopAmbient, isAmbientPlaying } from '../lib/sound';
 
 const links = [
   { page: 'home' as const, label: 'Home' },
@@ -16,6 +17,16 @@ interface NavbarProps {
 export function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [ambientOn, setAmbientOn] = useState(false);
+  const toggleAmbient = useCallback(() => {
+    if (ambientOn) {
+      stopAmbient();
+      setAmbientOn(false);
+    } else {
+      startAmbient();
+      setAmbientOn(true);
+    }
+  }, [ambientOn]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -50,6 +61,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
         }}
       >
         <a
+          data-sound="click"
           onClick={(e) => { e.preventDefault(); onNavigate('home'); }}
           href="#home"
           style={{
@@ -75,6 +87,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
               <>
                 {links.map((link) => (
                   <a
+                    data-sound="click"
                     key={link.label}
                     href={link.hash || '#home'}
                     style={{
@@ -98,6 +111,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
                   </a>
                 ))}
                 <a
+                  data-sound="click"
                   onClick={(e) => { e.preventDefault(); onNavigate('blog'); }}
                   href="#blog"
                   style={{
@@ -123,6 +137,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
               </>
             ) : (
               <a
+                data-sound="click"
                 onClick={(e) => { e.preventDefault(); onNavigate('home'); }}
                 href="#home"
                 style={{
@@ -148,6 +163,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
 
             {currentPage === 'home' && (
               <a
+                data-sound="click"
                 onClick={(e) => { e.preventDefault(); onNavigate('studio-pass'); }}
                 href="#studio-pass"
                 style={{
@@ -176,6 +192,26 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
           </div>
 
           <button
+            data-sound="click"
+            onClick={toggleAmbient}
+            title={ambientOn ? 'Disable ambient sound' : 'Enable ambient sound'}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 40,
+              height: 40,
+              borderRadius: 'var(--radius-sm)',
+              color: ambientOn ? 'var(--color-accent)' : 'var(--color-text-tertiary)',
+              transition: 'all var(--transition-fast)',
+              marginRight: '0.25rem',
+            }}
+          >
+            {ambientOn ? <Volume2 size={16} /> : <VolumeX size={16} />}
+          </button>
+
+          <button
+            data-sound="click"
             onClick={() => setOpen(!open)}
             style={{
               display: 'flex',
@@ -208,6 +244,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
             <>
               {links.map((link) => (
                 <a
+                  data-sound="click"
                   key={link.label}
                   href={link.hash || '#home'}
                   onClick={() => setOpen(false)}
@@ -224,6 +261,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
                 </a>
               ))}
               <a
+                data-sound="click"
                 onClick={(e) => { e.preventDefault(); onNavigate('blog'); setOpen(false); }}
                 href="#blog"
                 style={{
@@ -240,6 +278,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
             </>
           ) : (
             <a
+              data-sound="click"
               onClick={(e) => { e.preventDefault(); onNavigate('home'); setOpen(false); }}
               href="#home"
               style={{
@@ -254,6 +293,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
             </a>
           )}
           <a
+            data-sound="click"
             onClick={(e) => { e.preventDefault(); onNavigate('studio-pass'); setOpen(false); }}
             href="#studio-pass"
             style={{
