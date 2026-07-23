@@ -8,6 +8,7 @@ import { BlogList } from './pages/BlogList';
 import { BlogPost } from './pages/BlogPost';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsOfService } from './pages/TermsOfService';
+import { playClick } from './lib/sound';
 
 const Projects = lazy(() =>
   import('./components/Projects').then((m) => ({ default: m.Projects }))
@@ -57,7 +58,7 @@ export default function App() {
       const el = (e.target as HTMLElement).closest('[data-sound], a, button');
       if (!el) return;
       if (el.getAttribute('data-sound') === 'off') return;
-      import('./lib/sound').then(({ playClick }) => playClick());
+      playClick();
     };
     document.addEventListener('click', handler);
     return () => document.removeEventListener('click', handler);

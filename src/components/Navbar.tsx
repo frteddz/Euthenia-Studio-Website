@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Menu, X, Star, Volume2, VolumeX } from 'lucide-react';
-import { startAmbient, stopAmbient, isAmbientPlaying } from '../lib/sound';
+import { startAmbient, stopAmbient } from '../lib/sound';
 
 const links = [
   { page: 'home' as const, label: 'Home' },
