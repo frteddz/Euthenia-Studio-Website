@@ -8,6 +8,7 @@ import { BlogList } from './pages/BlogList';
 import { BlogPost } from './pages/BlogPost';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsOfService } from './pages/TermsOfService';
+import { AmbientYouTube } from './components/AmbientYouTube';
 import { playClick } from './lib/sound';
 
 const Projects = lazy(() =>
@@ -115,6 +116,7 @@ export default function App() {
   return (
     <>
       <AnimatedBackground />
+      <AmbientYouTube />
       <Navbar currentPage={page} onNavigate={navigate} />
       {renderPage()}
     </>

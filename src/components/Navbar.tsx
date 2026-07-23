@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Menu, X, Star, Volume2, VolumeX } from 'lucide-react';
-import { startAmbient, stopAmbient } from '../lib/sound';
+import { startAmbient, stopAmbient, setVolume } from '../lib/ambient';
 
 const links = [
   { page: 'home' as const, label: 'Home' },
@@ -18,15 +18,22 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [ambientOn, setAmbientOn] = useState(false);
+  const [volume, setVolumeState] = useState(30);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const toggleAmbient = useCallback(() => {
     if (ambientOn) {
       stopAmbient();
       setAmbientOn(false);
     } else {
-      startAmbient();
+      startAmbient('ambient-youtube');
       setAmbientOn(true);
     }
   }, [ambientOn]);
+  const handleVolume = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = Number(e.target.value);
+    setVolumeState(v);
+    setVolume(v);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -191,24 +198,48 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
             )}
           </div>
 
-          <button
-            data-sound="click"
-            onClick={toggleAmbient}
-            title={ambientOn ? 'Disable ambient sound' : 'Enable ambient sound'}
+          <div
+            ref={sliderRef}
             style={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              width: 40,
-              height: 40,
-              borderRadius: 'var(--radius-sm)',
-              color: ambientOn ? 'var(--color-accent)' : 'var(--color-text-tertiary)',
-              transition: 'all var(--transition-fast)',
+              gap: '0.375rem',
               marginRight: '0.25rem',
             }}
           >
-            {ambientOn ? <Volume2 size={16} /> : <VolumeX size={16} />}
-          </button>
+            <button
+              data-sound="click"
+              onClick={toggleAmbient}
+              title={ambientOn ? 'Disable ambient sound' : 'Enable ambient sound'}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 36,
+                height: 36,
+                borderRadius: 'var(--radius-sm)',
+                color: ambientOn ? 'var(--color-accent)' : 'var(--color-text-tertiary)',
+                transition: 'all var(--transition-fast)',
+              }}
+            >
+              {ambientOn ? <Volume2 size={15} /> : <VolumeX size={15} />}
+            </button>
+            {ambientOn && (
+              <input
+                type="range"
+                min={0}
+                max={100}
+                value={volume}
+                onChange={handleVolume}
+                style={{
+                  width: 64,
+                  height: 4,
+                  accentColor: 'var(--color-accent)',
+                  cursor: 'pointer',
+                }}
+              />
+            )}
+          </div>
 
           <button
             data-sound="click"
