@@ -1,4 +1,4 @@
-import { GitBranch, ExternalLink, Mail } from 'lucide-react';
+import { GitBranch, ExternalLink, Mail, Shield, FileText } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -103,6 +103,44 @@ export function Footer() {
               >
                 <Mail size={16} />
                 Contact
+              </a>
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.5rem',
+                alignItems: 'flex-start',
+              }}
+            >
+              <a
+                href="#privacy"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  fontSize: '0.875rem',
+                  color: 'var(--color-text-secondary)',
+                  transition: 'color var(--transition-fast)',
+                }}
+              >
+                <Shield size={16} />
+                Privacy Policy
+              </a>
+              <a
+                href="#terms"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  fontSize: '0.875rem',
+                  color: 'var(--color-text-secondary)',
+                  transition: 'color var(--transition-fast)',
+                }}
+              >
+                <FileText size={16} />
+                Terms of Service
               </a>
             </div>
           </div>

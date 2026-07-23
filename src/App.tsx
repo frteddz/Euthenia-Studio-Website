@@ -6,6 +6,8 @@ import { StudioPass } from './pages/StudioPass';
 import { ToolDetail } from './pages/ToolDetail';
 import { BlogList } from './pages/BlogList';
 import { BlogPost } from './pages/BlogPost';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsOfService } from './pages/TermsOfService';
 
 const Projects = lazy(() =>
   import('./components/Projects').then((m) => ({ default: m.Projects }))
@@ -35,6 +37,8 @@ function getPageFromHash(): string {
   if (hash === 'studio-pass') return 'studio-pass';
   if (hash === 'blog') return 'blog';
   if (hash.startsWith('blog/')) return hash;
+  if (hash === 'privacy') return 'privacy';
+  if (hash === 'terms') return 'terms';
   if (toolIds.includes(hash)) return hash;
   return 'home';
 }
@@ -67,6 +71,12 @@ export default function App() {
     if (page.startsWith('blog/')) {
       const postId = page.slice(5);
       return <BlogPost postId={postId} onNavigate={navigate} />;
+    }
+    if (page === 'privacy') {
+      return <PrivacyPolicy onNavigate={navigate} />;
+    }
+    if (page === 'terms') {
+      return <TermsOfService onNavigate={navigate} />;
     }
     if (toolIds.includes(page)) {
       return <ToolDetail toolId={page} onNavigate={navigate} />;
