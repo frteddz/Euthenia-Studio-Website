@@ -29,6 +29,7 @@ export interface Project {
   description: string;
   icon: LucideIcon;
   url: string;
+  category: 'tools' | 'games' | 'creative';
 }
 
 export const projects: Project[] = [
@@ -38,6 +39,7 @@ export const projects: Project[] = [
     description: 'PNG, JPG, WebP and AVIF converter.',
     icon: Image,
     url: 'https://frteddz.github.io/PngForge-web/',
+    category: 'tools',
   },
   {
     id: 'pdfmerge',
@@ -45,6 +47,7 @@ export const projects: Project[] = [
     description: 'Merge, split and organize PDF files.',
     icon: FileText,
     url: 'https://frteddz.github.io/PDFMerge-web/',
+    category: 'tools',
   },
   {
     id: 'clipvault',
@@ -52,6 +55,7 @@ export const projects: Project[] = [
     description: 'Clipboard history manager.',
     icon: ClipboardList,
     url: 'https://frteddz.github.io/ClipVault-web/',
+    category: 'tools',
   },
   {
     id: 'quickrename',
@@ -59,6 +63,7 @@ export const projects: Project[] = [
     description: 'Bulk file renaming utility.',
     icon: FilePenLine,
     url: 'https://frteddz.github.io/QuickRename-web/',
+    category: 'tools',
   },
   {
     id: 'pixelshrink',
@@ -66,6 +71,7 @@ export const projects: Project[] = [
     description: 'Batch image compression tool.',
     icon: ImageDown,
     url: 'https://frteddz.github.io/PixelShrink-web/',
+    category: 'tools',
   },
   {
     id: 'folderscope',
@@ -73,6 +79,7 @@ export const projects: Project[] = [
     description: 'Disk usage visualizer.',
     icon: FolderTree,
     url: 'https://frteddz.github.io/FolderScope-web/',
+    category: 'tools',
   },
   {
     id: 'colorsnap',
@@ -80,6 +87,7 @@ export const projects: Project[] = [
     description: 'Professional color picker.',
     icon: Pipette,
     url: 'https://frteddz.github.io/ColorSnap-web/',
+    category: 'tools',
   },
   {
     id: 'qrflow',
@@ -87,6 +95,7 @@ export const projects: Project[] = [
     description: 'QR code generator and scanner.',
     icon: QrCode,
     url: 'https://frteddz.github.io/QRFlow-web/',
+    category: 'tools',
   },
   {
     id: 'studyflow',
@@ -94,6 +103,7 @@ export const projects: Project[] = [
     description: 'Modern study planner.',
     icon: BookOpen,
     url: 'https://frteddz.github.io/StudyFlow-web/',
+    category: 'tools',
   },
   {
     id: 'backupbuddy',
@@ -101,41 +111,7 @@ export const projects: Project[] = [
     description: 'Backup utility.',
     icon: HardDrive,
     url: 'https://frteddz.github.io/BackupBuddy-web/',
-  },
-  {
-    id: 'cluegrid',
-    name: 'Clue Grid',
-    description: 'Word puzzle with alphabetical distance hints. Warmer/cooler feedback guides you to the answer.',
-    icon: Grid,
-    url: 'https://frteddz.github.io/ClueGrid-web/',
-  },
-  {
-    id: 'lastsignal',
-    name: 'Last Signal',
-    description: 'Hangman reimagined — cracked oxygen tank, escape pod launch, and the void.',
-    icon: Radio,
-    url: 'https://frteddz.github.io/LastSignal-web/',
-  },
-  {
-    id: 'tonetrail',
-    name: 'Tone Trail',
-    description: 'Memory game with a twist: ghost notes try to trick you. Repeat the sequence, ignore the fakes.',
-    icon: Music,
-    url: 'https://frteddz.github.io/ToneTrail-web/',
-  },
-  {
-    id: 'popcluster',
-    name: 'Pop Cluster',
-    description: 'Pop groups of 3+ same-colored bubbles. Chain reactions and combos for high scores.',
-    icon: CircleDot,
-    url: 'https://frteddz.github.io/PopCluster-web/',
-  },
-  {
-    id: 'kilter',
-    name: 'Kilter',
-    description: 'Tetris with shifting gravity. Every 15 lines the board rotates — adapt or crumble.',
-    icon: Box,
-    url: 'https://frteddz.github.io/Kilter-web/',
+    category: 'tools',
   },
   {
     id: 'pixelstudio',
@@ -143,6 +119,7 @@ export const projects: Project[] = [
     description: 'Browser-based pixel art editor. Draw, fill, erase, and export your creations as PNG.',
     icon: Palette,
     url: 'https://frteddz.github.io/PixelStudio-web/',
+    category: 'creative',
   },
   {
     id: 'soundlayers',
@@ -150,27 +127,7 @@ export const projects: Project[] = [
     description: 'Mix ambient soundscapes with layered controls. Deep drone, stars, wind, and more.',
     icon: Headphones,
     url: 'https://frteddz.github.io/SoundLayers-web/',
-  },
-  {
-    id: 'flowstate',
-    name: 'Flow State',
-    description: 'Focus timer with a reward system. Complete sessions to build a growing scene.',
-    icon: Timer,
-    url: 'https://frteddz.github.io/FlowState-web/',
-  },
-  {
-    id: 'triviavoyager',
-    name: 'Trivia Voyager',
-    description: '80+ questions across 6 categories. Correct answers fuel your journey to new destinations.',
-    icon: Brain,
-    url: 'https://frteddz.github.io/TriviaVoyager-web/',
-  },
-  {
-    id: 'spindeck',
-    name: 'Spin Deck',
-    description: 'Decision wheel that picks for you. Custom labels, spin history, and satisfying physics.',
-    icon: Shuffle,
-    url: 'https://frteddz.github.io/SpinDeck-web/',
+    category: 'creative',
   },
   {
     id: 'starmap',
@@ -178,5 +135,70 @@ export const projects: Project[] = [
     description: 'Generate a custom night sky poster. Pick a date and hemisphere, download your star map.',
     icon: Map,
     url: 'https://frteddz.github.io/StarMap-web/',
+    category: 'creative',
+  },
+  {
+    id: 'spindeck',
+    name: 'Spin Deck',
+    description: 'Decision wheel that picks for you. Custom labels, spin history, and satisfying physics.',
+    icon: Shuffle,
+    url: 'https://frteddz.github.io/SpinDeck-web/',
+    category: 'creative',
+  },
+  {
+    id: 'flowstate',
+    name: 'Flow State',
+    description: 'Focus timer with a reward system. Complete sessions to build a growing scene.',
+    icon: Timer,
+    url: 'https://frteddz.github.io/FlowState-web/',
+    category: 'creative',
+  },
+  {
+    id: 'triviavoyager',
+    name: 'Trivia Voyager',
+    description: '80+ questions across 6 categories. Correct answers fuel your journey to new destinations.',
+    icon: Brain,
+    url: 'https://frteddz.github.io/TriviaVoyager-web/',
+    category: 'creative',
+  },
+  {
+    id: 'cluegrid',
+    name: 'Clue Grid',
+    description: 'Word puzzle with alphabetical distance hints. Warmer/cooler feedback guides you to the answer.',
+    icon: Grid,
+    url: 'https://frteddz.github.io/ClueGrid-web/',
+    category: 'games',
+  },
+  {
+    id: 'lastsignal',
+    name: 'Last Signal',
+    description: 'Hangman reimagined — cracked oxygen tank, escape pod launch, and the void.',
+    icon: Radio,
+    url: 'https://frteddz.github.io/LastSignal-web/',
+    category: 'games',
+  },
+  {
+    id: 'tonetrail',
+    name: 'Tone Trail',
+    description: 'Memory game with a twist: ghost notes try to trick you. Repeat the sequence, ignore the fakes.',
+    icon: Music,
+    url: 'https://frteddz.github.io/ToneTrail-web/',
+    category: 'games',
+  },
+  {
+    id: 'popcluster',
+    name: 'Pop Cluster',
+    description: 'Pop groups of 3+ same-colored bubbles. Chain reactions and combos for high scores.',
+    icon: CircleDot,
+    url: 'https://frteddz.github.io/PopCluster-web/',
+    category: 'games',
+  },
+  {
+    id: 'kilter',
+    name: 'Kilter',
+    description: 'Tetris with shifting gravity. Every 15 lines the board rotates — adapt or crumble.',
+    icon: Box,
+    url: 'https://frteddz.github.io/Kilter-web/',
+    category: 'games',
   },
 ];
