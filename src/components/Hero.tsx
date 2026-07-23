@@ -45,8 +45,7 @@ export function Hero() {
               margin: '0 auto 2.5rem',
             }}
           >
-            A small independent software studio building practical, privacy-first tools. <br />
-            <span style={{ color: 'var(--color-text-tertiary)', fontSize: '0.9em' }}>Want to publish your project here? Email me.</span>
+            A small independent software studio building practical, privacy-first tools.
           </p>
         </div>
 
@@ -151,6 +150,36 @@ export function Hero() {
           >
             <ExternalLink size={16} />
             X / Twitter
+          </a>
+        </div>
+
+        <div
+          className="reveal reveal-delay-3"
+          style={{
+            marginTop: '3rem',
+            padding: '0.875rem 1.5rem',
+            borderRadius: 'var(--radius-md)',
+            background: 'var(--color-card-bg)',
+            border: '1px solid var(--color-border)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            fontSize: '0.875rem',
+            color: 'var(--color-text-secondary)',
+          }}
+        >
+          <Mail size={16} style={{ color: 'var(--color-accent)', flexShrink: 0 }} />
+          <span>Want to publish your project here?</span>
+          <a
+            href="mailto:teddzfr@proton.me"
+            style={{
+              color: 'var(--color-accent)',
+              fontWeight: 600,
+              textDecoration: 'underline',
+              textUnderlineOffset: '2px',
+            }}
+          >
+            teddzfr@proton.me
           </a>
         </div>
       </div>
